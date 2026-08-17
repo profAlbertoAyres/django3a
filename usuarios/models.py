@@ -69,6 +69,7 @@ class Personal(models.Model):
     cref = models.CharField(max_length=50)
     especialidade = models.TextField(blank=True, null=True)
     celular = models.CharField(max_length=20)
+    cidade = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Personal trainer'

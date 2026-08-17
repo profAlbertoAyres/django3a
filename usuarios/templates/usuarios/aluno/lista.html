@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Alunos {% endblock %}
+
+{% block content %}
+<h3 class="mb-4">Alunos</h3>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sexo</th>
+            <th>Nascimento</th>
+            <th>Celular</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for aluno in alunos %}
+            <tr>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.sexo|default:"-" }}</td>
+                <td>{{ aluno.nascimento|date:"d/m/Y"|default:"-" }}</td>
+                <td>{{ aluno.celular|default:"-" }}</td>
+                <td></td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">Nenhum Aluno cadastrado</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<a href="#" class="btn btn-success mt-3">Novo aluno</a>
+
+{% endblock %}
