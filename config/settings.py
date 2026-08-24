@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'usuarios',
     'agendas',
     'treinos',
+    'web',
 ]
 
 MIDDLEWARE = [

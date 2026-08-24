@@ -189,9 +189,16 @@
                 </ul>
             </div>
         </header>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} >">
+            {{ message.messagem }}
+        </div>
+        {% endfor %}
+        {% endif %}
 
         <!-- Área de conteúdo -->
-        <main class="content">
+        <main class="container content">
             {% block content %}
 
             {% endblock %}

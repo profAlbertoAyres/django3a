@@ -325,23 +325,6 @@ a {
 }
 
 /* ==========================================================================
-   7. BREADCRUMB
-   ========================================================================== */
-.breadcrumb-bar {
-    min-height: var(--breadcrumb-height);
-    background-color: var(--surface);
-    border-bottom: 1px solid var(--border-color);
-    padding: 0.5rem 1.5rem;
-    display: flex;
-    align-items: center;
-}
-
-.breadcrumb-bar .breadcrumb {
-    margin-bottom: 0;
-    font-size: 0.82rem;
-}
-
-/* ==========================================================================
    8. CONTEÚDO PRINCIPAL
    ========================================================================== */
 main.content {
@@ -391,69 +374,6 @@ main.content {
 }
 
 /* ==========================================================================
-   11. BOTÕES PADRONIZADOS
-   ========================================================================== */
-.btn {
-    border-radius: var(--radius-sm);
-    font-size: 0.875rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    transition: filter var(--transition-fast), transform var(--transition-fast);
-}
-
-.btn:active {
-    transform: translateY(1px);
-}
-
-.btn-novo {
-    background-color: var(--success);
-    color: #fff;
-    border: none;
-}
-
-.btn-editar {
-    background-color: var(--warning);
-    color: #212529;
-    border: none;
-}
-
-.btn-excluir {
-    background-color: var(--danger);
-    color: #fff;
-    border: none;
-}
-
-.btn-salvar {
-    background-color: var(--primary);
-    color: #fff;
-    border: none;
-}
-
-.btn-cancelar {
-    background-color: transparent;
-    color: var(--secondary);
-    border: 1px solid var(--border-color);
-}
-
-.btn-pesquisar {
-    background-color: var(--text-primary);
-    color: #fff;
-    border: none;
-}
-
-.btn-novo:hover,
-.btn-editar:hover,
-.btn-excluir:hover,
-.btn-salvar:hover,
-.btn-pesquisar:hover {
-    filter: brightness(1.08);
-}
-
-.btn-cancelar:hover {
-    background-color: var(--background);
-}
-
-/* ==========================================================================
    12. TABELAS
    ========================================================================== */
 .table-responsive {
@@ -467,11 +387,9 @@ main.content {
     background-color: var(--surface);
 }
 
-.table thead {
-    background-color: var(--sidebar-bg);
-}
 
 .table thead th {
+    background-color: var(--sidebar-bg) !important;
     color: #fff;
     font-weight: 500;
     font-size: 0.82rem;

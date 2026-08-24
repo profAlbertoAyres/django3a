@@ -27,7 +27,6 @@ def criar_aluno(request):
     if request.method == 'POST':
         user_form = UsuarioForm(request.POST)
         aluno_form = AlunoForm(request.POST)
-
         if user_form.is_valid() and aluno_form.is_valid():
             try:
                 with transaction.atomic():
@@ -39,3 +38,11 @@ def criar_aluno(request):
                 return redirect('usuarios:aluno_lista')
             except Exception:
                 messages.error(request,'Não foi possível cadastrar o aluno')
+
+    else:
+        user_form = UsuarioForm()
+        aluno_form = AlunoForm()
+    return render(request, 'usuarios/aluno/form.html',{
+            'user_form' : user_form,
+            'aluno_form' : aluno_form,
+        })

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Novo Aluno {% endblock %}
+
+{% block content %}
+
+<h3>Novo Aluno</h3>
+<form method="post">
+    {% csrf_token %}
+    <h6>Dados de Acesso</h6>
+    {{ user_form.as_p }}
+    <h6>Dados do aluno</h6>
+    {{ aluno_form.as_p }}
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+{% endblock %}
