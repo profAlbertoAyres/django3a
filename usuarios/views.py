@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.db import transaction
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 
 from usuarios.forms import UsuarioForm, AlunoForm
@@ -17,6 +17,10 @@ from usuarios.models import Aluno
 #                   {'alunos':alunos})
 
 #CBV
+
+def dashboard(request):
+    return render(request, 'usuarios/aluno/dashboard.html')
+
 class AlunoListView(ListView):
     model = Aluno
     template_name = 'usuarios/aluno/lista.html'
@@ -46,3 +50,19 @@ def criar_aluno(request):
             'user_form' : user_form,
             'aluno_form' : aluno_form,
         })
+
+def editar_aluno(request, pk):
+    aluno = get_object_or_404(Aluno, pk=pk)
+    if request.method == 'POST':
+        aluno_form = AlunoForm(request.POST, instance=aluno)
+        if aluno_form.is_valid():
+            try:
+                aluno_form.save()
+                messages.success(request,'Aluno editado com sucesso!')
+                return redirect('usuarios:aluno_lista')
+            except Exception:
+                messages.error(request,'Não foi possível editar o aluno')
+    else:
+        aluno_form = AlunoForm(instance=aluno)
+    return render(request, 'usuarios/aluno/form.html',
+                  {'aluno_form': aluno_form})

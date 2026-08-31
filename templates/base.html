@@ -5,14 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}  {% endblock %}</title>
-
-    <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-    <!-- CSS próprio do sistema -->
     <link rel="stylesheet" href="{% static 'css/base/layout.css' %}">
 
     <!-- Bloco reservado para CSS específico de cada página -->
@@ -56,21 +51,15 @@
                     </a>
                     <ul class="collapse submenu" id="menuUsuarios">
                         <li>
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-dot"></i>
+                            <a class="nav-link" href="{% url 'usuarios:aluno_lista' %}">
+                                <i class="bi bi-person-hearts"></i>
                                 <span class="menu-label">Alunos</span>
                             </a>
                         </li>
                         <li>
                             <a class="nav-link" href="#">
-                                <i class="bi bi-dot"></i>
+                                <i class="bi bi-person-badge"></i>
                                 <span class="menu-label">Personais</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-dot"></i>
-                                <span class="menu-label">Usuários</span>
                             </a>
                         </li>
                     </ul>
@@ -123,25 +112,6 @@
                         </li>
                     </ul>
                 </li>
-
-                <!-- Links -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#menuLinks"
-                       aria-expanded="false" role="button">
-                        <i class="bi bi-link-45deg menu-icon"></i>
-                        <span class="menu-label">Links</span>
-                        <i class="bi bi-chevron-right submenu-arrow"></i>
-                    </a>
-                    <ul class="collapse submenu" id="menuLinks">
-                        <li>
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-dot"></i>
-                                <span class="menu-label">Links úteis</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
             </ul>
         </nav>
 
@@ -189,13 +159,6 @@
                 </ul>
             </div>
         </header>
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} >">
-            {{ message.messagem }}
-        </div>
-        {% endfor %}
-        {% endif %}
 
         <!-- Área de conteúdo -->
         <main class="container content">
