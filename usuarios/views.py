@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.db import transaction
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 
 from usuarios.forms import UsuarioForm, AlunoForm
 from usuarios.models import Aluno
@@ -66,3 +67,9 @@ def editar_aluno(request, pk):
         aluno_form = AlunoForm(instance=aluno)
     return render(request, 'usuarios/aluno/form.html',
                   {'aluno_form': aluno_form})
+
+
+class AlunoDetalhes(DetailView):
+    model = Aluno
+    template_name = 'usuarios/aluno/detalhe.html'
+    context_object_name = 'aluno'

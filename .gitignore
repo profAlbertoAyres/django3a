@@ -1,25 +1,27 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-
 # Ambiente virtual
 .venv/
 venv/
+env/
 
-# Django
+#python
+__pycach__/
+*.py[cod]
+*$py.class
+
+#Django
 db.sqlite3
+
+#variaveis de ambiente
+.env
+.env.*
+
+#arquivos de mídia
 media/
 
-# IDE
-.idea/
-
-# Logs
-*.log
-
-# Variáveis de ambiente
-.env
-
-# Arquivos do sistema
+#sistemas operacionais
 .DS_Store
 Thumbs.db
+
+#logs
+
+*.log

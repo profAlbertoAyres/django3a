@@ -12,4 +12,5 @@ urlpatterns = [
     path('alunos/lista/',views.AlunoListView.as_view(),name='aluno_lista'),
     path('alunos/novo/',views.criar_aluno,name='aluno_novo'),
     path('alunos/<int:pk>/editar',views.editar_aluno,name='aluno_editar'),
+    path('aluno/<int:pk>',views.AlunoDetalhes.as_view(), name='aluno_detalhe')
 ]
